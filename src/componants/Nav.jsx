@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 const Nav = () => {
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 shadow-lg px-4 sm:px-8 fixed z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -25,7 +25,7 @@ const Nav = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content gap-4 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <NavLink
               to="/"
@@ -62,12 +62,12 @@ const Nav = () => {
           Book<span className="text-primary">Bive</span>
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+      <div className="navbar-center hidden lg:flex ">
+        <ul className="menu menu-horizontal px-1 gap-4">
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive ? "text-primary font-bold" : "font-bold"
+              isActive ? "text-primary font-bold btn btn-outline btn-success" : "font-bold btn btn-ghost"
             }
           >
             Home
@@ -76,7 +76,7 @@ const Nav = () => {
           <NavLink
             to="/listedBooks"
             className={({ isActive }) =>
-              isActive ? "text-primary font-bold" : "font-bold"
+              isActive ? "text-primary font-bold btn btn-outline btn-success" : "font-bold btn btn-ghost"
             }
           >
             Listed Book
@@ -85,7 +85,7 @@ const Nav = () => {
           <NavLink
             to="/ToRead"
             className={({ isActive }) =>
-              isActive ? "text-primary font-bold" : "font-bold"
+              isActive ? "text-primary font-bold btn btn-outline btn-success" : "font-bold btn btn-ghost"
             }
           >
             Pages to Read
@@ -93,8 +93,8 @@ const Nav = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">SignIn</a>
-        <a className="btn">SignUp</a>
+        <a className="btn btn-success mr-4">SignIn</a>
+        <a className="btn btn-info">SignUp</a>
       </div>
     </div>
   );
