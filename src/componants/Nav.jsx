@@ -57,9 +57,9 @@ const Nav = () => {
         </div>
         <Link
           to="/"
-          className="btn btn-ghost gap-0 text-secondary normal-case text-xl"
+          className="btn btn-ghost gap-0 font-bold normal-case text-xl text-info"
         >
-          Book<span className="text-primary">Bive</span>
+          Book<span className="text-success">Bive</span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex ">
