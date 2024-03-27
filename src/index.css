@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.swal-modal {
+    width: 300px; /* Adjust the width as needed */
+    max-width: 90%; /* Ensure it doesn't exceed the viewport width */
+}
+
+/* You can also adjust other styles if needed */
+.swal-title {
+    font-size: 1.25rem; /* Adjust the title font size */
+}
+
+.swal-text {
+    font-size: 1rem; /* Adjust the text font size */
+}
+
+.swal-modal {
+    top: 20px; /* Adjust the distance from the top of the screen */
+    right: 20px; /* Adjust the distance from the right of the screen */
+}

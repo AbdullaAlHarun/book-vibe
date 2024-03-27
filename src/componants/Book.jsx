@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import swal from 'sweetalert'; // Importing sweetalert library
+import '../index.css';
 
 const Book = () => {
     const { id } = useParams(); // Assuming your route parameter is named 'id'
@@ -14,6 +16,41 @@ const Book = () => {
             })
             .catch(error => console.error('Error fetching book data:', error));
     }, [id]);
+
+    // Function to handle adding item to local storage and showing toast
+    const handleAddToStorage = (action) => {
+        let storageKey = '';
+        let message = '';
+        
+        if (action === 'Read') {
+            storageKey = 'readBooks';
+            message = `Added "${book.bookName}" to Read list!`;
+        } else if (action === 'Wishlist') {
+            storageKey = 'wishlistBooks';
+            message = `Added "${book.bookName}" to Wishlist!`;
+        }
+    
+        // Check if the book is already added to local storage
+        let storedBooks = localStorage.getItem(storageKey);
+        storedBooks = storedBooks ? JSON.parse(storedBooks) : [];
+        const isBookAdded = storedBooks.find(item => item.bookId === book.bookId);
+    
+        if (action === 'Wishlist') {
+            const isBookInReadList = localStorage.getItem('readBooks');
+            if (isBookInReadList && isBookInReadList.includes(book.bookId.toString())) {
+                swal('Oops!', `"${book.bookName}" is already in your Read list!`, 'warning');
+                return;
+            }
+        }
+    
+        if (!isBookAdded) {
+            storedBooks.push(book);
+            localStorage.setItem(storageKey, JSON.stringify(storedBooks));
+            swal('Success!', message, 'success'); // Show success toast
+        } else {
+            swal('Oops!', `"${book.bookName}" is already in your ${action} list!`, 'warning'); // Show warning toast
+        }
+    };
 
     if (!book) {
         return <div>Loading...</div>;
@@ -48,8 +85,8 @@ const Book = () => {
                         <p className="text-gray-600">Publisher: {book.publisher}</p>
                         <p className="text-gray-600">Rating: {book.rating}</p>
                         <div className="flex">
-                            <button className="btn btn-sm btn-primary mr-2">Read</button>
-                            <button className="btn btn-sm btn-secondary">Wishlist</button>
+                            <button onClick={() => handleAddToStorage('Read')} className="btn btn-sm btn-primary mr-2">Read</button>
+                            <button onClick={() => handleAddToStorage('Wishlist')} className="btn btn-sm btn-secondary">Wishlist</button>
                         </div>
                     </div>
                 </div>
