@@ -17,7 +17,7 @@ const Hero = () => {
           
           <Link 
             to="/listedBooks"
-            className="btn btn-success"
+            className="btn bg-[#23BE0A] text-white"
           >
             View The List
           </Link> 

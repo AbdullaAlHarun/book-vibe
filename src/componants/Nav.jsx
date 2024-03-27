@@ -59,7 +59,7 @@ const Nav = () => {
           to="/"
           className="btn btn-ghost gap-0 font-bold normal-case text-xl text-info"
         >
-          Book<span className="text-success">Bive</span>
+          Book<span className="text-[#23BE0A]">Bive</span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex ">
@@ -67,7 +67,7 @@ const Nav = () => {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive ? "text-primary font-bold btn btn-outline btn-success" : "font-bold btn btn-ghost"
+              isActive ? "text-primary font-bold btn btn-sm btn-outline btn-success" : "font-bold btn btn-sm btn-ghost"
             }
           >
             Home
@@ -76,7 +76,7 @@ const Nav = () => {
           <NavLink
             to="/listedBooks"
             className={({ isActive }) =>
-              isActive ? "text-primary font-bold btn btn-outline btn-success" : "font-bold btn btn-ghost"
+              isActive ? "text-primary font-bold btn btn-sm btn-outline btn-success" : "font-bold btn btn-sm btn-ghost"
             }
           >
             Listed Book
@@ -85,7 +85,7 @@ const Nav = () => {
           <NavLink
             to="/ToRead"
             className={({ isActive }) =>
-              isActive ? "text-primary font-bold btn btn-outline btn-success" : "font-bold btn btn-ghost"
+              isActive ? "text-primary font-bold btn btn-sm btn-outline btn-success" : "font-bold btn btn-sm btn-ghost"
             }
           >
             Pages to Read
@@ -93,8 +93,8 @@ const Nav = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn btn-success mr-4">SignIn</a>
-        <a className="btn btn-info">SignUp</a>
+        <a className="btn bg-[#23BE0A] mr-4 text-white">Sign In</a>
+        <a className="btn btn-info text-white">Sign Up</a>
       </div>
     </div>
   );

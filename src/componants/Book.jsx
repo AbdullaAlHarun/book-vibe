@@ -46,9 +46,9 @@ const Book = () => {
         if (!isBookAdded) {
             storedBooks.push(book);
             localStorage.setItem(storageKey, JSON.stringify(storedBooks));
-            swal('Success!', message, 'success'); // Show success toast
+            swal('Success!', message, 'success'); 
         } else {
-            swal('Oops!', `"${book.bookName}" is already in your ${action} list!`, 'warning'); // Show warning toast
+            swal('Oops!', `"${book.bookName}" is already in your ${action} list!`, 'warning'); 
         }
     };
 
