@@ -21,7 +21,30 @@ const ListedBooks = () => {
 
   // Function to handle sorting option change
   const handleSortChange = (e) => {
-    setSortOption(e.target.value);
+    const option = e.target.value;
+    setSortOption(option);
+
+    // Sort the books based on the selected option for both read books and wishlist books
+    if (activeTab === "read") {
+      const sortedReadBooks = [...readBooks].sort((a, b) => {
+        if (a[option] < b[option]) return 1;
+        if (a[option] > b[option]) return -1;
+        return 0;
+      });
+      setReadBooks(sortedReadBooks);
+    } else {
+      const sortedWishlistBooks = [...wishlistBooks].sort((a, b) => {
+        if (a[option] < b[option]) return 1;
+        if (a[option] > b[option]) return -1;
+        return 0;
+      });
+      setWishlistBooks(sortedWishlistBooks);
+    }
+  };
+
+  const handleViewDetails = (book) => {
+    // Navigate to the Book details page for the selected book
+    history.push(`/book/${book.bookId}`);
   };
 
   return (
@@ -29,9 +52,16 @@ const ListedBooks = () => {
       <div className="container w-full p-6 mx-auto space-y-6 sm:space-y-12">
         <h1 className="mx-auto text-4xl text-center">Books</h1>
         <div className="grid grid-cols-1 gap-4">
-          <div>
-            <label className="bg-[#23BE0A] mx-auto" htmlFor="sort">Sort By:</label>
-            <select id="sort" value={sortOption} onChange={handleSortChange}>
+          <div className="mx-auto">
+            <label className="btn btn-sm bg-[#23BE0A] " htmlFor="sort">
+              Sort By:
+            </label>
+            <select
+              id="sort"
+              className="btn btn-sm bg-[#23BE0A] mx-auto"
+              value={sortOption}
+              onChange={handleSortChange}
+            >
               <option value="rating">Rating</option>
               <option value="totalPages">Number of Pages</option>
               <option value="yearOfPublishing">Publisher Year</option>
@@ -42,19 +72,16 @@ const ListedBooks = () => {
               <a
                 onClick={() => handleTabChange("read")}
                 className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2  dark:border-gray-600 dark:text-gray-600 ${
-                    activeTab === "read" ? "border-b-0 border-2" : "border-b"
-                  }`}
-               
+                  activeTab === "read" ? "border-b-0 border-2" : "border-b"
+                }`}
               >
-               
                 <span> Read Books</span>
               </a>
               <a
                 onClick={() => handleTabChange("wishlist")}
                 className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2   rounded-t-lg dark:border-gray-600 dark:text-gray-900 ${
-                    activeTab === "wishlist" ? "border-b-0 border-2" : "border-b"
-                  }`
-                }               
+                  activeTab === "wishlist" ? "border-b-0 border-2" : "border-b"
+                }`}
               >
                 <span>Wishlist</span>
               </a>
