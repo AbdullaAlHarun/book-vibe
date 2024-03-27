@@ -30,7 +30,7 @@ const ListedBooks = () => {
         <h1 className="mx-auto text-4xl text-center">Books</h1>
         <div className="grid grid-cols-1 gap-4">
           <div>
-            <label htmlFor="sort">Sort By:</label>
+            <label className="bg-[#23BE0A] mx-auto" htmlFor="sort">Sort By:</label>
             <select id="sort" value={sortOption} onChange={handleSortChange}>
               <option value="rating">Rating</option>
               <option value="totalPages">Number of Pages</option>
@@ -38,16 +38,34 @@ const ListedBooks = () => {
             </select>
           </div>
           <div className="container mx-auto mt-6">
-            
-
-            
+            <div className="flex justify-start -mx-4 overflow-x-auto overflow-y-hidden flex-nowrap dark:bg-gray-100 dark:text-gray-800">
+              <a
+                onClick={() => handleTabChange("read")}
+                className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2  dark:border-gray-600 dark:text-gray-600 ${
+                    activeTab === "read" ? "border-b-0 border-2" : "border-b"
+                  }`}
+               
+              >
+               
+                <span> Read Books</span>
+              </a>
+              <a
+                onClick={() => handleTabChange("wishlist")}
+                className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2   rounded-t-lg dark:border-gray-600 dark:text-gray-900 ${
+                    activeTab === "wishlist" ? "border-b-0 border-2" : "border-b"
+                  }`
+                }               
+              >
+                <span>Wishlist</span>
+              </a>
+            </div>
 
             <div className="gap-2 grid">
               {(activeTab === "read" ? readBooks : wishlistBooks).map(
                 (book) => (
                   <div
                     key={book.bookId}
-                    className="card card-side bg-base-100 shadow-xl flex flex-col md:flex-row w-full flex-2"
+                    className="card card-side border-2 bg-base-100 shadow-xl flex flex-col md:flex-row w-full flex-2"
                   >
                     <figure className="text-center md:text-left">
                       <img
