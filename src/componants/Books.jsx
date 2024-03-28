@@ -1,6 +1,7 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -51,7 +52,7 @@ const Books = () => {
                                     <hr className='border-dashed'/>
                                     <div className="flex justify-between">
                                         <span className="text-sm dark:text-gray-600"> {book.category}</span>
-                                        <span className="text-sm dark:text-gray-600">Rating {book.rating}</span>
+                                        <span className="text-sm dark:text-gray-600">Rating {book.rating} <FontAwesomeIcon icon={faStar} /></span>
                                     </div>
                                 </div>
                             </Link>
