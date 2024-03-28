@@ -6,6 +6,7 @@ import ToRead from '../pages/ToRead.jsx'
 import Books from '../componants/Books.jsx'
 import Book from '../componants/Book.jsx'
 import Contact from '../componants/Contact.jsx'
+import Pricing from '../componants/Pricing.jsx'
 
 
 export const router = createBrowserRouter([
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
         {
           path:'/ToRead',
           element: <ToRead></ToRead>,
+        },
+        {
+          path:'/Pricing',
+          element: <Pricing></Pricing>,
         },
         {
           path:'/Contact',

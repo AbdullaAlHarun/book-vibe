@@ -53,6 +53,16 @@ const Nav = () => {
             >
               Pages to Read
             </NavLink>
+
+            <NavLink
+              to="/Pricing"
+              className={({ isActive }) =>
+                isActive ? "text-primary font-bold" : "font-bold"
+              }
+            >
+              Pricing
+            </NavLink>
+
             <NavLink
               to="/Contact"
               className={({ isActive }) =>
@@ -97,6 +107,15 @@ const Nav = () => {
             }
           >
             Pages to Read
+          </NavLink>
+
+          <NavLink
+            to="/Pricing"
+            className={({ isActive }) =>
+              isActive ? "text-primary font-bold btn btn-sm btn-outline btn-success" : "font-bold btn btn-sm btn-ghost"
+            }
+          >
+            Pricing
           </NavLink>
 
           <NavLink
