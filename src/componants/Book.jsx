@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import swal from 'sweetalert'; // Importing sweetalert library
+import swal from 'sweetalert'; 
 import '../index.css';
 
 const Book = () => {

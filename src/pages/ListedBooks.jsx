@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot,faUserGroup,faFileLines  } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const ListedBooks = () => {
   const [readBooks, setReadBooks] = useState([]);
@@ -49,7 +50,7 @@ const ListedBooks = () => {
   return (
     <section className="dark:bg-gray-100 dark:text-gray-800">
       <div className="container w-full p-6 mx-auto space-y-6 sm:space-y-12">
-        <h1 className="mx-auto text-4xl text-center">Books</h1>
+        <h1 className="mx-auto text-4xl text-center w-full bg-slate-200 py-4 rounded-xl">Books</h1>
         <div className="grid grid-cols-1 gap-4">
           <div className="mx-auto">
             <label className="btn btn-sm bg-[#23BE0A] " htmlFor="sort">
@@ -67,7 +68,7 @@ const ListedBooks = () => {
             </select>
           </div>
           <div className="container mx-auto mt-6">
-            <div className="flex justify-start -mx-4 overflow-x-auto overflow-y-hidden flex-nowrap dark:bg-gray-100 dark:text-gray-800">
+            <div className="flex justify-start  mx-4 overflow-x-auto overflow-y-hidden flex-nowrap dark:bg-gray-100 dark:text-gray-800">
               <a
                 onClick={() => handleTabChange("read")}
                 className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2  dark:border-gray-600 dark:text-gray-600 ${
@@ -131,9 +132,11 @@ const ListedBooks = () => {
                         <span className="text-xs tracking-wider uppercase hover:underline btn btn-sm text-warning">
                           Ratings:{book.rating}
                         </span>
-                        <button className="btn btn-sm bg-[#23BE0A] text-white">
+                        <Link 
+                          to={`/book/${book.bookId}`}
+                          className="btn btn-sm bg-[#23BE0A] text-white">
                           View Details
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
