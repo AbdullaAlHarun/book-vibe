@@ -53,6 +53,14 @@ const Nav = () => {
             >
               Pages to Read
             </NavLink>
+            <NavLink
+              to="/Contact"
+              className={({ isActive }) =>
+                isActive ? "text-primary font-bold" : "font-bold"
+              }
+            >
+              Contact
+            </NavLink>
           </ul>
         </div>
         <Link
@@ -89,6 +97,15 @@ const Nav = () => {
             }
           >
             Pages to Read
+          </NavLink>
+
+          <NavLink
+            to="/Contact"
+            className={({ isActive }) =>
+              isActive ? "text-primary font-bold btn btn-sm btn-outline btn-success" : "font-bold btn btn-sm btn-ghost"
+            }
+          >
+            Contact
           </NavLink>
         </ul>
       </div>
