@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot,faUserGroup,faFileLines  } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from "react";
 
 const ListedBooks = () => {
@@ -42,10 +44,7 @@ const ListedBooks = () => {
     }
   };
 
-  const handleViewDetails = (book) => {
-    // Navigate to the Book details page for the selected book
-    history.push(`/book/${book.bookId}`);
-  };
+ 
 
   return (
     <section className="dark:bg-gray-100 dark:text-gray-800">
@@ -117,12 +116,12 @@ const ListedBooks = () => {
                           ))}
                         </div>
                         <span>
-                          <p>Year of Publishing: {book.yearOfPublishing}</p>
+                          <p><span><FontAwesomeIcon icon={faLocationDot} /></span> Year of Publishing: {book.yearOfPublishing}</p>
                         </span>
                       </div>
                       <div className="flex justify-start gap-2">
-                        <span>Publisher: {book.publisher}</span>
-                        <p>Total Pages: {book.totalPages}</p>
+                        <span><span><FontAwesomeIcon icon={faUserGroup} /></span> Publisher: {book.publisher}</span>
+                        <p><span><FontAwesomeIcon icon={faFileLines} /></span> Page: {book.totalPages}</p>
                       </div>
                       <hr />
                       <div className="card-actions justify-start">
